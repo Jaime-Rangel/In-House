@@ -13,33 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});*/
-
-//Restriccion de api
-//Route::resource('adressInfo','adressInfo\adressInfoController',['only'=>['index','show']]);
-
-//adressInfo
-Route::resource('adressInfo','adressInfo\adressInfoController');
-
-//ownership
-Route::resource('ownership','ownership\ownershipController');
-
-//photoInfo
-Route::resource('photoInfo','photoInfo\photoInfoController');
-
-//rent
-Route::resource('rent','rent\rentController');
-
-//occupant
-Route::resource('occupant','occupant\occupantController');
-
-//owner
-Route::resource('owner','owner\ownerController');
-
-//userInfo
-Route::resource('userInfo','userInfo\userInfoController');
-
-//personInfo
-Route::resource('personInfo','personInfo\personInfoController');
+});
