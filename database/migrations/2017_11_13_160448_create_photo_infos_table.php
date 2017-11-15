@@ -15,7 +15,12 @@ class CreatePhotoInfosTable extends Migration
     {
         Schema::create('photo_infos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->string('url');
+            $table->integer('fk_idownership')->unsigned()->nullable();
             $table->timestamps();
+            $table->foreign('fk_idownership')->references('id')->on('ownerships');
         });
     }
 

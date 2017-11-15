@@ -15,7 +15,12 @@ class CreateUserInfosTable extends Migration
     {
         Schema::create('user_infos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('user');
+            $table->string('password');
             $table->timestamps();
+            $table->integer('fk_idpersonInfo')->unsigned()->nullable();
+            $table->foreign('fk_idpersonInfo')->references('id')->on('person_infos');
+
         });
     }
 

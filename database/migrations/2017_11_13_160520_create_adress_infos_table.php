@@ -15,7 +15,15 @@ class CreateAdressInfosTable extends Migration
     {
         Schema::create('adress_infos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('country');
+            $table->string('state');
+            $table->string('city');
+            $table->string('street');
+            $table->string('sm');
+            $table->integer('fk_idownership')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign('fk_idownership')->references('id')->on('ownerships');
         });
     }
 
