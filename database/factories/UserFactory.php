@@ -1,9 +1,11 @@
 <?php
 
+use App\adressInfo;
 use App\occupant;
 use App\owner;
 use App\ownership;
 use App\personInfo;
+use App\photoInfo;
 use App\rent;
 use App\userInfo;
 use Faker\Generator as Faker;
@@ -67,9 +69,9 @@ $factory->define(owner::class, function (Faker $faker) {
 $factory->define(ownership::class, function (Faker $faker) {
 
     return [
-        'description',
-        'salePrice',
-        'rentPrice',
+        'description'=>$faker->paragraph(1),
+        'salePrice'=>$faker->randomDigit,
+        'rentPrice'=>$faker->randomDigit,
         'fk_idowner'=>owner::all()->random()->id,
     ];
 });
@@ -78,9 +80,9 @@ $factory->define(ownership::class, function (Faker $faker) {
 $factory->define(rent::class, function (Faker $faker) {
 
     return [
-        'checkIn',
-        'checkOut',
-        'total',
+        'checkIn'=>$faker->dateTime,
+        'checkOut'=>$faker->dateTime,
+        'total'=>$faker->randomDigit,
         'fk_idownership'=>ownership::all()->random()->id,
         'fk_idoccupant'=>occupant::all()->random()->id,
     ];
@@ -89,9 +91,9 @@ $factory->define(rent::class, function (Faker $faker) {
 $factory->define(photoInfo::class, function (Faker $faker) {
 
     return [
-        'name',
-        'description',
-        'url',
+        'name'=>$faker->name,
+        'description'=>$faker->paragraph(1),
+        'url'=>$faker->url,
         'fk_idownership'=>ownership::all()->random()->id,
     ];
 });
@@ -99,11 +101,11 @@ $factory->define(photoInfo::class, function (Faker $faker) {
 $factory->define(adressInfo::class, function (Faker $faker) {
 
     return [
-        'country',
-        'state',
-        'city',
-        'street',
-        'sm',
+        'country'=>$faker->country,
+        'state'=>$faker->streetAddress,
+        'city'=>$faker->city,
+        'street'=>$faker->streetName,
+        'sm'=>$faker->streetAddress,
         'fk_idownership'=>ownership::all()->random()->id,
     ];
 });

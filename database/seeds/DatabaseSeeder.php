@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        DB::statement('SET FOREIGN_KEYS_CHECKS = 0');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         adressInfo::query()->truncate();
         occupant::query()->truncate();
@@ -34,13 +34,13 @@ class DatabaseSeeder extends Seeder
         $personInfoSize = 100;
 
         factory(personInfo::class,$personInfoSize)->create();
-        //factory(userInfo::class,$personInfoSize)->create();
-     /*   factory(userInfo::class,$personInfoSize)->create()->each(
-          function (userInfo $userInfo){
-              $personInfo  = personInfo::all()->random();
+        factory(userInfo::class,$personInfoSize)->create();
+        factory(occupant::class,$personInfoSize)->create();
+        factory(owner::class,$personInfoSize)->create();
+        factory(ownership::class,$personInfoSize)->create();
+        factory(rent::class,$personInfoSize)->create();
+        factory(photoInfo::class,$personInfoSize)->create();
+        factory(adressInfo::class,$personInfoSize)->create();
 
-              $userInfo->personInfo()->associate($personInfo);
-          }
-        );*/
     }
 }
