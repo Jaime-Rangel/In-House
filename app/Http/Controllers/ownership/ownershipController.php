@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ownership;
 use App\ownership;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\owner;
 
 class ownershipController extends Controller
 {
@@ -18,8 +19,8 @@ class ownershipController extends Controller
 
         $ownerships = ownership::with('owner')->get();
 
-        return response()->json(['data' => $ownerships],200);
-        //return view('ownership.index',compact('ownerships'));
+        //return response()->json(['data' => $ownerships],200);
+        return view('ownership.index',compact('ownerships'));
     }
 
     /**

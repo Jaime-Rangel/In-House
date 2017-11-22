@@ -15,7 +15,7 @@ class ownerController extends Controller
      */
     public function index()
     {
-        $owner = owner::all();
+        $owner = owner::with('userInfo')->get();
 
         return response()->json(['data' => $owner],200);
     }

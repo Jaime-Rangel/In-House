@@ -15,6 +15,6 @@ class photoInfo extends Model
 
     public function ownership()
     {
-        return $this->belongsToMany(ownership::class);
+        return $this->belongsTo(ownership::class,'fk_idownership','id');
     }
 }

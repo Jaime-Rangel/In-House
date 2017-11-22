@@ -15,7 +15,7 @@ class userInfoController extends Controller
      */
     public function index()
     {
-        $userInfo = userInfo::all();
+        $userInfo = userInfo::with('personInfo')->get();
 
         return response()->json(['data' => $userInfo],200);
     }

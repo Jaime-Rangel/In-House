@@ -6,7 +6,8 @@
 <body>
 
 @foreach($ownerships as $ownership)
-    <td>{{$ownership->description}}</td>
+    <td>{{$ownership->owner->userInfo->personInfo->name}}</td>
+    <hr>
 
 @endforeach
 </body>

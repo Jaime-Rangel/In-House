@@ -15,7 +15,7 @@ class occupantController extends Controller
      */
     public function index()
     {
-        $occupant = occupant::all();
+        $occupant = occupant::with('userInfo')->get();
 
         return response()->json(['data' => $occupant],200);
     }

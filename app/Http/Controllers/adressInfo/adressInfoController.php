@@ -15,7 +15,7 @@ class adressInfoController extends Controller
      */
     public function index()
     {
-        $adressInfos = adressInfo::all();
+        $adressInfos = adressInfo::with('ownership')->get();
 
         return response()->json(['data' => $adressInfos],200);
     }

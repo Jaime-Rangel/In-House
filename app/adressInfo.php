@@ -17,6 +17,6 @@ class adressInfo extends Model
 
     public function ownership()
     {
-        return $this->belongsTo(ownership::class);
+        return $this->belongsTo(ownership::class,'fk_idownership','id');
     }
 }

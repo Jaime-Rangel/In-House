@@ -14,6 +14,6 @@ class userInfo extends Model
 
     public function personInfo()
     {
-        return $this->belongsTo(personInfo::class);
+        return $this->belongsTo(personInfo::class,'fk_idpersonInfo','id');
     }
 }

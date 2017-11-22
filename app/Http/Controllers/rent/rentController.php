@@ -15,7 +15,7 @@ class rentController extends Controller
      */
     public function index()
     {
-        $rent = rent::all();
+        $rent = rent::with('ownership','occupant')->get();
 
         return response()->json(['data' => $rent],200);
     }

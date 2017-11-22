@@ -12,6 +12,6 @@ class occupant extends Model
 
     public function userInfo()
     {
-        return $this->belongsTo(userInfo::class);
+        return $this->belongsTo(userInfo::class,'fk_iduserInfo','id');
     }
 }

@@ -15,7 +15,7 @@ class photoInfoController extends Controller
      */
     public function index()
     {
-        $photoInfo = photoInfo::all();
+        $photoInfo = photoInfo::with('ownership')->get();
 
         return response()->json(['data' => $photoInfo],200);
     }

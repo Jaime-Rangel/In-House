@@ -16,11 +16,11 @@ class rent extends Model
 
     public function ownership()
     {
-        return $this->belongsToMany(ownership::class);
+        return $this->belongsTo(ownership::class,'fk_idownership','id');
     }
 
     public function occupant()
     {
-        return $this->belongsTo(occupant::class);
+        return $this->belongsTo(occupant::class,'fk_idoccupant','id');
     }
 }
