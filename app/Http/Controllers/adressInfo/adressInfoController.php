@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\adressInfo;
 
+use App\adressInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class adressInfoController extends Controller
      */
     public function index()
     {
-        //
+        $adressInfos = adressInfo::all();
+
+        return response()->json(['data' => $adressInfos],200);
     }
 
     /**
@@ -22,10 +25,10 @@ class adressInfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+ /*   public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +38,11 @@ class adressInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $adressInfo = adressInfo::create($data);
+
+        return response()->json(['data'=>$adressInfo],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class adressInfoController extends Controller
      */
     public function show($id)
     {
-        //
+        $adressInfo = adressInfo::findOrFail($id);
+
+        return response()->json(['data'=>$adressInfo],200);
     }
 
     /**
@@ -69,7 +78,7 @@ class adressInfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $adressInfo = adressInfo::findOrFail($id);
     }
 
     /**

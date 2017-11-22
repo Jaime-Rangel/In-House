@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ownership;
 
+use App\ownership;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,11 @@ class ownershipController extends Controller
      */
     public function index()
     {
-        //
+
+        $ownerships = ownership::with('owner')->get();
+
+        return response()->json(['data' => $ownerships],200);
+        //return view('ownership.index',compact('ownerships'));
     }
 
     /**
@@ -22,10 +27,10 @@ class ownershipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+/*    public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +40,11 @@ class ownershipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $ownership = ownership::create($data);
+
+        return response()->json(['data'=>$ownership],201);
     }
 
     /**
@@ -46,7 +55,9 @@ class ownershipController extends Controller
      */
     public function show($id)
     {
-        //
+        $ownership = ownership::findOrFail($id);
+
+        return response()->json(['data'=>$ownership],200);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\photoInfo;
 
+use App\photoInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class photoInfoController extends Controller
      */
     public function index()
     {
-        //
+        $photoInfo = photoInfo::all();
+
+        return response()->json(['data' => $photoInfo],200);
     }
 
     /**
@@ -35,7 +38,11 @@ class photoInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $photoInfo = photoInfo::create($data);
+
+        return response()->json(['data'=>$photoInfo],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class photoInfoController extends Controller
      */
     public function show($id)
     {
-        //
+        $photoInfo = photoInfo::findOrFail($id);
+
+        return response()->json(['data'=>$photoInfo],200);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\occupant;
 
+use App\occupant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class occupantController extends Controller
      */
     public function index()
     {
-        //
+        $occupant = occupant::all();
+
+        return response()->json(['data' => $occupant],200);
     }
 
     /**
@@ -22,10 +25,10 @@ class occupantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+/*    public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +38,11 @@ class occupantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $occupant = occupant::create($data);
+
+        return response()->json(['data'=>$occupant],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class occupantController extends Controller
      */
     public function show($id)
     {
-        //
+        $occupant = occupant::findOrFail($id);
+
+        return response()->json(['data'=>$occupant],200);
     }
 
     /**

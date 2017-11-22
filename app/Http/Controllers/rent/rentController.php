@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\rent;
 
+use App\rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class rentController extends Controller
      */
     public function index()
     {
-        //
+        $rent = rent::all();
+
+        return response()->json(['data' => $rent],200);
     }
 
     /**
@@ -22,10 +25,10 @@ class rentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+/*    public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +38,11 @@ class rentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $rent = rent::create($data);
+
+        return response()->json(['data'=>$rent],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class rentController extends Controller
      */
     public function show($id)
     {
-        //
+        $rent = rent::findOrFail($id);
+
+        return response()->json(['data'=>$rent],200);
     }
 
     /**

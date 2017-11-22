@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\userInfo;
 
+use App\userInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class userInfoController extends Controller
      */
     public function index()
     {
-        //
+        $userInfo = userInfo::all();
+
+        return response()->json(['data' => $userInfo],200);
     }
 
     /**
@@ -35,7 +38,11 @@ class userInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $userInfo = userInfo::create($data);
+
+        return response()->json(['data'=>$userInfo],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class userInfoController extends Controller
      */
     public function show($id)
     {
-        //
+        $userInfo = userInfo::findOrFail($id);
+
+        return response()->json(['data'=>$userInfo],200);
     }
 
     /**

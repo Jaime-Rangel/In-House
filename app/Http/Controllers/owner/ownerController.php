@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\owner;
 
+use App\owner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class ownerController extends Controller
      */
     public function index()
     {
-        //
+        $owner = owner::all();
+
+        return response()->json(['data' => $owner],200);
     }
 
     /**
@@ -35,7 +38,11 @@ class ownerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $owner = owner::create($data);
+
+        return response()->json(['data'=>$owner],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class ownerController extends Controller
      */
     public function show($id)
     {
-        //
+        $owner = owner::findOrFail($id);
+
+        return response()->json(['data'=>$owner],200);
     }
 
     /**

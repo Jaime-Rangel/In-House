@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.20 on 2017-11-13.
+ * Generated for Laravel 5.5.20 on 2017-11-16.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14299,26 +14299,7 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
-
-    namespace Illuminate\Support{
-        /**
-         * @method Fluent first()
-         * @method Fluent after($column)
-         * @method Fluent change()
-         * @method Fluent nullable()
-         * @method Fluent unsigned()
-         * @method Fluent unique()
-         * @method Fluent index()
-         * @method Fluent primary()
-         * @method Fluent default($value)
-         * @method Fluent onUpdate($value)
-         * @method Fluent onDelete($value)
-         * @method Fluent references($value)
-         * @method Fluent on($value)
-         */
-        class Fluent {}
-    }
-
+ 
 }
 
 

@@ -16,3 +16,19 @@ use Illuminate\Http\Request;
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
+
+Route::resource('adressInfo','adressInfo\adressInfoController');
+
+Route::resource('occupant','occupant\occupantController');
+
+Route::resource('owner','owner\ownerController');
+
+Route::resource('ownership','ownership\ownershipController');
+
+Route::resource('personInfo','personInfo\personInfoController');
+
+Route::resource('photoInfo','photoInfo\photoInfoController');
+
+Route::resource('rent','rent\rentController');
+
+Route::resource('userInfo','userInfo\userInfoController');

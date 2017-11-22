@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\personInfo;
 
+use App\personInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class personInfoController extends Controller
      */
     public function index()
     {
-        //
+        $personInfo = personInfo::all();
+
+        return response()->json(['data' => $personInfo],200);
     }
 
     /**
@@ -22,10 +25,10 @@ class personInfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+/*    public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +38,11 @@ class personInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $personInfo = personInfo::create($data);
+
+        return response()->json(['data'=>$personInfo],201);
     }
 
     /**
@@ -46,7 +53,9 @@ class personInfoController extends Controller
      */
     public function show($id)
     {
-        //
+        $personInfo = personInfo::findOrFail($id);
+
+        return response()->json(['data'=>$personInfo],200);
     }
 
     /**
